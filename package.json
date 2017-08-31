@@ -1,0 +1,39 @@
+{
+  "name": "sedra-cal",
+  "version": "1.0.0",
+  "description": "Convert between Sedra 3 and CAL ASCII transliterations",
+  "main": "src/sedracal.js",
+  "scripts": {
+    "doc": "jsdoc -c jsdoc.json"
+  },
+  "eslintConfig": {
+    "extends": "airbnb-base"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/peshitta/sedra-cal.git"
+  },
+  "keywords": [
+    "Sedra",
+    "CAL",
+    "Peshitta",
+    "Peshitto",
+    "Sedra.js",
+    "Sedrajs",
+    "Aramaic",
+    "Mapper",
+    "Converter"
+  ],
+  "author": "Greg Borota",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/peshitta/sedra-cal/issues"
+  },
+  "homepage": "https://github.com/peshitta/sedra-cal#readme",
+  "devDependencies": {
+    "eslint": "^4.5.0",
+    "eslint-config-airbnb-base": "^11.3.2",
+    "eslint-plugin-import": "^2.7.0",
+    "jsdoc": "^3.5.4"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "source": {
+    "include": ["src", "README.md"]
+  },
+  "opts": {
+    "destination": "./doc/",
+    "recurse": true
+  }
+}
