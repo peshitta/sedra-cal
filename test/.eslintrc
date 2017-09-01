@@ -1,0 +1,8 @@
+{
+    "rules": {
+        "camelcase": 0
+    },
+    "env": {
+        "node": true
+    }
+}
