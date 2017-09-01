@@ -28,14 +28,10 @@ npm run build
 ## API Reference
 
 * [sedra.util](#sedra.module_util)
-    * _static_
-        * [.sedra2calMap](#sedra.module_util.sedra2calMap) : <code>Object.&lt;string, string&gt;</code>
-        * [.cal2sedraMap](#sedra.module_util.cal2sedraMap) : <code>Object.&lt;string, string&gt;</code>
-        * [.sedra2cal(word)](#sedra.module_util.sedra2cal) ⇒ <code>string</code>
-        * [.cal2sedra(word)](#sedra.module_util.cal2sedra) ⇒ <code>string</code>
-    * _inner_
-        * [~isNext(c, index, word)](#sedra.module_util..isNext) ⇒ <code>string</code>
-        * [~isPrior(c, index, word)](#sedra.module_util..isPrior) ⇒ <code>string</code>
+    * [.sedra2calMap](#sedra.module_util.sedra2calMap) : <code>Object.&lt;string, string&gt;</code>
+    * [.cal2sedraMap](#sedra.module_util.cal2sedraMap) : <code>Object.&lt;string, string&gt;</code>
+    * [.sedra2cal(word)](#sedra.module_util.sedra2cal) ⇒ <code>string</code>
+    * [.cal2sedra(word)](#sedra.module_util.cal2sedra) ⇒ <code>string</code>
 
 <a name="sedra.module_util.sedra2calMap"></a>
 
@@ -72,34 +68,6 @@ Convert from CAL to Sedra 3 transliteration
 | Param | Type | Description |
 | --- | --- | --- |
 | word | <code>string</code> | input word in CAL code transliteration |
-
-<a name="sedra.module_util..isNext"></a>
-
-### sedra.util~isNext(c, index, word) ⇒ <code>string</code>
-Returns true if next character is c
-
-**Kind**: inner method of [<code>sedra.util</code>](#sedra.module_util)  
-**Returns**: <code>string</code> - true if next character is c  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| c | <code>string</code> | character to check |
-| index | <code>number</code> | current index in the word |
-| word | <code>string</code> | input word |
-
-<a name="sedra.module_util..isPrior"></a>
-
-### sedra.util~isPrior(c, index, word) ⇒ <code>string</code>
-Returns true if prior character is c
-
-**Kind**: inner method of [<code>sedra.util</code>](#sedra.module_util)  
-**Returns**: <code>string</code> - true if prior character is c  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| c | <code>string</code> | character to check |
-| index | <code>number</code> | current index in the word |
-| word | <code>string</code> | input word |
 
 
 ## License

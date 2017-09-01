@@ -71,6 +71,7 @@ export const sedra2calMap = Object.create(null, {
 
 /**
  * Returns true if next character is c
+ * @private
  * @param {string} c character to check
  * @param {number} index current index in the word
  * @param {string} word input word
@@ -163,6 +164,7 @@ export const cal2sedraMap = Object.create(null, {
 
 /**
  * Returns true if prior character is c
+ * @private
  * @param {string} c character to check
  * @param {number} index current index in the word
  * @param {string} word input word
