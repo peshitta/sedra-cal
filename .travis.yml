@@ -4,8 +4,12 @@ node_js:
   - "4"
   - "6"
   - "8"
+  - "lts/*"
+cache:
+  directories:
+    - "node_modules"
 env:
   global:
     - BUILD_TIMEOUT=10000
 install: npm install
-# script: npm run build
+script: npm run build
