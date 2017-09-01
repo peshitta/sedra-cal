@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/peshitta/sedra-cal.svg?branch=master)](https://travis-ci.org/peshitta/sedra-cal)
+
 ## sedra-cal
 
 Utility to convert between Sedra 3 and CAL ASCII transliterations.
