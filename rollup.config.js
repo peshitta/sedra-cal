@@ -5,22 +5,19 @@ export default [
   // browser-friendly UMD build
   {
     input: 'src/main.js',
-    output: [
-      { file: pkg.main, format: 'umd' },
-    ],
+    output: [{ file: pkg.main, format: 'umd' }],
     name: 'sedra.util',
     plugins: [
-      buble({ // transpile ES2015+ to ES5
-        exclude: ['node_modules/**'],
-      }),
-    ],
+      buble({
+        // transpile ES2015+ to ES5
+        exclude: ['node_modules/**']
+      })
+    ]
   },
 
   // ES module (for bundlers) build.
   {
     input: 'src/main.js',
-    output: [
-      { file: pkg.module, format: 'es' },
-    ],
-  },
+    output: [{ file: pkg.module, format: 'es' }]
+  }
 ];

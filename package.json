@@ -2,17 +2,21 @@
   "name": "sedra-cal",
   "version": "1.0.0",
   "description": "Convert between Sedra 3 and CAL ASCII transliterations",
-  "main": "build/sedracal.js",
-  "module": "build/sedracal.esm.js",
+  "main": "build/sedra-cal.js",
+  "module": "build/sedra-cal.esm.js",
   "scripts": {
     "build": "npm run doc && npm run lint && npm run rollup && npm run min",
-    "min": "uglifyjs ./build/sedracal.js -o ./build/sedracal.min.js -c dead_code,toplevel,comparisons,unsafe=true,unsafe_Func=true,unsafe_comps=true -m toplevel --comments",
+    "min": "uglifyjs ./build/sedra-cal.js -o ./build/sedra-cal.min.js -c dead_code,toplevel,comparisons,unsafe=true,unsafe_Func=true,unsafe_comps=true -m toplevel --comments",
     "rollup": "rollup -c",
     "lint": "eslint src/*.js",
     "doc": "jsdoc2md -t src/README.hbs src/*.js > README.md"
   },
   "eslintConfig": {
-    "extends": "airbnb-base"
+    "extends": "airbnb-base",
+    "rules": {
+      "no-plusplus": 0,
+      "comma-dangle": 0
+    }
   },
   "repository": {
     "type": "git",

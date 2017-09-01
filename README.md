@@ -11,9 +11,9 @@ npm install sedra-cal --save
 ```
 
 Following packages are available:
-* `sedracal.js` - UMD ES5 version for use in browser, node, etc.
-* `sedracal.min.js` - minified version of `sedracal.js`
-* `sedracal.esm.js` - ES6 module version, suitable for bundling with other 
+* `sedra-cal.js` - UMD ES5 version for use in browser, node, etc.
+* `sedra-cal.min.js` - minified version of `sedra-cal.js`
+* `sedra-cal.esm.js` - ES6 module version, suitable for bundling with other 
 libraries and applications
 
 ## Development
@@ -25,12 +25,30 @@ npm install
 npm run build
 ```
 
-# API Reference
+## API Reference
 
 * [sedra.util](#sedra.module_util)
-    * [.sedra2cal(word)](#sedra.module_util.sedra2cal) ⇒ <code>string</code>
-    * [.cal2sedra(word)](#sedra.module_util.cal2sedra) ⇒ <code>string</code>
+    * _static_
+        * [.sedra2calMap](#sedra.module_util.sedra2calMap) : <code>Object.&lt;string, string&gt;</code>
+        * [.cal2sedraMap](#sedra.module_util.cal2sedraMap) : <code>Object.&lt;string, string&gt;</code>
+        * [.sedra2cal(word)](#sedra.module_util.sedra2cal) ⇒ <code>string</code>
+        * [.cal2sedra(word)](#sedra.module_util.cal2sedra) ⇒ <code>string</code>
+    * _inner_
+        * [~isNext(c, index, word)](#sedra.module_util..isNext) ⇒ <code>string</code>
+        * [~isPrior(c, index, word)](#sedra.module_util..isPrior) ⇒ <code>string</code>
 
+<a name="sedra.module_util.sedra2calMap"></a>
+
+### sedra.util.sedra2calMap : <code>Object.&lt;string, string&gt;</code>
+Sedra to CAL mapping
+
+**Kind**: static constant of [<code>sedra.util</code>](#sedra.module_util)  
+<a name="sedra.module_util.cal2sedraMap"></a>
+
+### sedra.util.cal2sedraMap : <code>Object.&lt;string, string&gt;</code>
+CAL to Sedra mapping
+
+**Kind**: static constant of [<code>sedra.util</code>](#sedra.module_util)  
 <a name="sedra.module_util.sedra2cal"></a>
 
 ### sedra.util.sedra2cal(word) ⇒ <code>string</code>
@@ -54,6 +72,34 @@ Convert from CAL to Sedra 3 transliteration
 | Param | Type | Description |
 | --- | --- | --- |
 | word | <code>string</code> | input word in CAL code transliteration |
+
+<a name="sedra.module_util..isNext"></a>
+
+### sedra.util~isNext(c, index, word) ⇒ <code>string</code>
+Returns true if next character is c
+
+**Kind**: inner method of [<code>sedra.util</code>](#sedra.module_util)  
+**Returns**: <code>string</code> - true if next character is c  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| c | <code>string</code> | character to check |
+| index | <code>number</code> | current index in the word |
+| word | <code>string</code> | input word |
+
+<a name="sedra.module_util..isPrior"></a>
+
+### sedra.util~isPrior(c, index, word) ⇒ <code>string</code>
+Returns true if prior character is c
+
+**Kind**: inner method of [<code>sedra.util</code>](#sedra.module_util)  
+**Returns**: <code>string</code> - true if prior character is c  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| c | <code>string</code> | character to check |
+| index | <code>number</code> | current index in the word |
+| word | <code>string</code> | input word |
 
 
 ## License
