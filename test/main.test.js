@@ -4,9 +4,14 @@ const mapper = require('../build/sedra-cal.min.js');
  * General case usage, with one-to-one mapping
  * @param {object} test 
  */
-const sedra2cal_generic = (test) => {
-  test.expect(1);
-  test.ok(true, 'sedra2cal_generic pass');
+const sedra2cal_generic = test => {
+  test.expect(2);
+  const word = mapper.sedra2cal('DXSR;A-DI;L;IOS');
+  const vocalised = mapper.sedra2cal("D'XeSaRi;aA-D,I,i;Li;I'oOS");
+  const wordExpected = 'dqsry)-dpylypws';
+  const vocalisedExpected = "d'qesariya)-d,p,yilyip'wOs";
+  test.strictEqual(word, wordExpected, 'sedra2cal_generic consonant');
+  test.strictEqual(vocalised, vocalisedExpected, 'sedra2cal_generic vocalised');
   test.done();
 };
 
@@ -14,7 +19,7 @@ const sedra2cal_generic = (test) => {
  * Word with (i;) => (yi) mapping
  * @param {object} test 
  */
-const sedra2cal_yi = (test) => {
+const sedra2cal_yi = test => {
   test.expect(2);
   const word = mapper.sedra2cal('D;L;DOTH');
   const vocalised = mapper.sedra2cal("D'i;Li;D,uOT,eH");
@@ -29,7 +34,7 @@ const sedra2cal_yi = (test) => {
  * Word with (uO) => (wu) mapping
  * @param {object} test 
  */
-const sedra2cal_wu = (test) => {
+const sedra2cal_wu = test => {
   test.expect(1);
   test.ok(true, 'sedra2cal pass');
   test.done();
@@ -39,7 +44,7 @@ const sedra2cal_wu = (test) => {
  * Word with (oO) => (wO) mapping
  * @param {object} test 
  */
-const sedra2cal_wO = (test) => {
+const sedra2cal_wO = test => {
   test.expect(1);
   test.ok(true, 'cal2sedra_wO pass');
   test.done();
@@ -49,9 +54,14 @@ const sedra2cal_wO = (test) => {
  * General case cal2sedra usage, with one-to-one mapping
  * @param {object} test 
  */
-const cal2sedra_generic = (test) => {
-  test.expect(1);
-  test.ok(true, 'cal2sedra_generic pass');
+const cal2sedra_generic = test => {
+  test.expect(2);
+  const word = mapper.cal2sedra('dqsry)-dpylypws');
+  const vocalised = mapper.cal2sedra("d'qesariya)-d,p,yilyip'wOs");
+  const wordExpected = 'DXSR;A-DI;L;IOS';
+  const vocalisedExpected = "D'XeSaRi;aA-D,I,i;Li;I'oOS";
+  test.strictEqual(word, wordExpected, 'cal2sedra_generic consonant');
+  test.strictEqual(vocalised, vocalisedExpected, 'cal2sedra_generic vocalised');
   test.done();
 };
 
@@ -59,7 +69,7 @@ const cal2sedra_generic = (test) => {
  * Word with (yi) => (i;) mapping
  * @param {object} test 
  */
-const cal2sedra_yi = (test) => {
+const cal2sedra_yi = test => {
   test.expect(2);
   const word = mapper.cal2sedra('dylydwth');
   const vocalised = mapper.cal2sedra("d'yilyid,wut,eh");
@@ -71,10 +81,25 @@ const cal2sedra_yi = (test) => {
 };
 
 /**
+ * Word with short Eastern (E) => (e) mapping
+ * @param {object} test 
+ */
+const cal2sedra_E = test => {
+  test.expect(2);
+  const word = mapper.cal2sedra(')wld');
+  const vocalised = mapper.cal2sedra(')awlEd');
+  const wordExpected = 'AOLD';
+  const vocalisedExpected = 'AaOLeD';
+  test.strictEqual(word, wordExpected, 'cal2sedra_yi consonant');
+  test.strictEqual(vocalised, vocalisedExpected, 'cal2sedra_yi vocalised');
+  test.done();
+};
+
+/**
  * Word with (wu) => (uO) mapping
  * @param {object} test 
  */
-const cal2sedra_wu = (test) => {
+const cal2sedra_wu = test => {
   test.expect(1);
   test.ok(true, 'cal2sedra_wu pass');
   test.done();
@@ -84,7 +109,7 @@ const cal2sedra_wu = (test) => {
  * Word with (wO) => (oO) mapping
  * @param {object} test 
  */
-const cal2sedra_wO = (test) => {
+const cal2sedra_wO = test => {
   test.expect(1);
   test.ok(true, 'cal2sedra_wO pass');
   test.done();
@@ -99,5 +124,6 @@ module.exports = {
   cal2sedra_generic,
   cal2sedra_yi,
   cal2sedra_wu,
+  cal2sedra_E,
   cal2sedra_wO
 };
