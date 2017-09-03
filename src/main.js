@@ -1,5 +1,5 @@
 /**
- * @file Utility functions to convert between Sedra 3 and CAL ASCII transliterations
+ * @file Utility to convert between Sedra 3 and CAL ASCII transliterations
  * @module sedra.util
  * @version 1.0.0
  * @author Greg Borota
@@ -13,8 +13,8 @@
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
  *
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -25,6 +25,7 @@
  * SOFTWARE.
  */
 
+// https://peshitta.github.io
 // https://sedra.bethmardutho.org/about/fonts
 // http://cal1.cn.huc.edu/searching/fullbrowser.html
 
@@ -80,6 +81,14 @@ export const sedra2calMap = Object.create(null, {
 const isNext = (c, index, word) => c === word.charAt(index + 1);
 
 /**
+ * @private
+ * Maps input character to CAL code
+ * @param { string } c input character
+ * @returns { string } CAL mapped character
+ */
+const mapSedra = c => sedra2calMap[c] || c;
+
+/**
  * Convert from Sedra 3 to CAL Code transliteration
  * @param {string} word input word in Sedra 3 transliteration
  * @returns {string} the input word converted to CAL code representation
@@ -88,32 +97,25 @@ export function sedra2cal(word) {
   if (!word) {
     return word;
   }
+  const map = mapSedra;
   let sb = '';
-  for (let i = 0, len = word.length; i < len; i++) {
+  for (let i = 0, len = word.length, m; i < len; i += m.length) {
     const c = word.charAt(i);
     switch (c) {
       case 'i':
-        if (isNext(';', i, word)) {
-          sb += 'yi'; // Sedra stores in invers order (iy)
-          ++i;
-        }
+        m = isNext(';', i, word) ? 'yi' : map(c); // Sedra stores as (iy)
         break;
       case 'u':
-        if (isNext('O', i, word)) {
-          sb += 'wu'; // Sedra stores in invers order (uw)
-          ++i;
-        }
+        m = isNext('O', i, word) ? 'wu' : map(c); // Sedra stores as (uw)
         break;
       case 'o':
-        if (isNext('O', i, word)) {
-          sb += 'wO'; // Eastern long O is stored as (ow) in Sedra
-          ++i;
-        }
+        m = isNext('O', i, word) ? 'wO' : map(c); // Eastern O stored as (ow)
         break;
       default:
-        sb += sedra2calMap[c] || c;
+        m = map(c);
         break;
     }
+    sb += m;
   }
   return sb;
 }
@@ -163,14 +165,12 @@ export const cal2sedraMap = Object.create(null, {
 });
 
 /**
- * Returns true if prior character is c
  * @private
- * @param {string} c character to check
- * @param {number} index current index in the word
- * @param {string} word input word
- * @returns { string } true if prior character is c
+ * Maps input character to Sedra char
+ * @param { string } c input character
+ * @returns { string } Sedra mapped char
  */
-const isPrior = (c, index, word) => c === word.charAt(index - 1);
+const mapCal = c => cal2sedraMap[c] || c;
 
 /**
  * Convert from CAL to Sedra 3 transliteration
@@ -181,32 +181,26 @@ export function cal2sedra(word) {
   if (!word) {
     return word;
   }
+  const map = mapCal;
   let sb = '';
-  for (let i = 0, len = word.length; i < len; i++) {
+  for (let i = 0, len = word.length, m; i < len; i += m.length) {
     const c = word.charAt(i);
     switch (c) {
-      case 'i':
-        if (isPrior('y', i, word)) {
-          sb += 'i;'; // Sedra stores in invers order (iy)
-          ++i;
-        }
+      case 'y':
+        m = isNext('i', i, word) ? 'i;' : map(c); // Sedra stores as (iy)
         break;
-      case 'u':
-        if (isPrior('w', i, word)) {
-          sb += 'uO'; // Sedra stores in invers order (uw)
-          ++i;
-        }
-        break;
-      case 'O':
-        if (isPrior('w', i, word)) {
-          sb += 'oO'; // Eastern long O is stored as (ow) in Sedra
-          ++i;
-        }
+      case 'w':
+        m = isNext('u', i, word)
+          ? 'uO' // Sedra stores as (uw)
+          : isNext('O', i, word)
+            ? 'oO' // Eastern O stored as (ow)
+            : map(c);
         break;
       default:
-        sb += cal2sedraMap[c] || c;
+        m = map(c);
         break;
     }
+    sb += m;
   }
   return sb;
 }

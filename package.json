@@ -5,7 +5,7 @@
   "main": "build/sedra-cal.js",
   "module": "build/sedra-cal.esm.js",
   "scripts": {
-    "build": "npm run doc && npm run lint && npm run rollup && npm run test && npm run min",
+    "build": "npm run doc && npm run lint && npm run rollup && npm run min && npm run test",
     "min": "uglifyjs ./build/sedra-cal.js -o ./build/sedra-cal.min.js -c dead_code,toplevel,comparisons,unsafe=true,unsafe_Func=true,unsafe_comps=true -m toplevel --comments",
     "test": "nodeunit ./test/main.test.js",
     "rollup": "rollup -c",
@@ -16,7 +16,8 @@
     "extends": "airbnb-base",
     "rules": {
       "no-plusplus": 0,
-      "comma-dangle": 0
+      "comma-dangle": 0,
+      "no-nested-ternary": 0
     }
   },
   "repository": {
