@@ -17,6 +17,18 @@ Following packages are available:
 * `sedra-cal.esm.js` - ES6 module version, suitable for bundling with other 
 libraries and applications
 
+## More information
+
+[Peshitta App](https://peshitta.github.io)
+
+[Beth Mardutho](https://sedra.bethmardutho.org/about/fonts)
+
+[CAL](http://cal1.cn.huc.edu/searching/fullbrowser.html)
+
+## License
+
+[MIT](https://github.com/peshitta/sedra-cal/blob/master/LICENSE)
+
 ## Development
 
 ```
@@ -25,14 +37,6 @@ npm install
 ```
 npm run build
 ```
-
-## More information
-
-[Peshitta App](https://peshitta.github.io)
-
-[Beth Mardutho](https://sedra.bethmardutho.org/about/fonts)
-
-[CAL](http://cal1.cn.huc.edu/searching/fullbrowser.html)
 
 ## API Reference
 
@@ -182,7 +186,3 @@ Convert from CAL to Sedra 3 transliteration
 | --- | --- | --- |
 | word | <code>string</code> | input word in CAL code transliteration |
 
-
-## License
-
-[MIT](https://github.com/peshitta/sedra-cal/blob/master/LICENSE)
