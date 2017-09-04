@@ -4,6 +4,7 @@ node_js:
   - "4"
   - "6"
   - "8"
+  - "stable"
 cache:
   directories:
     - "node_modules"
@@ -12,3 +13,4 @@ env:
     - BUILD_TIMEOUT=10000
 install: npm install
 script: npm run build
+after_success: npm run coverage
