@@ -1,7 +1,7 @@
 /**
  * @file Utility to convert between Sedra 3 and CAL ASCII transliterations
  * @module sedra.util
- * @version 1.0.0
+ * @version 1.0.2
  * @author Greg Borota
  * @copyright (c) 2017 Greg Borota.
  * @license MIT
