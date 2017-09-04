@@ -1,6 +1,9 @@
 # sedra-cal
 
+[![npm version](https://badge.fury.io/js/sedra-cal.svg)](https://badge.fury.io/js/sedra-cal)
+[![npm module downloads](http://img.shields.io/npm/dt/sedra-cal.svg)](https://www.npmjs.org/package/sedra-cal)
 [![Build Status](https://travis-ci.org/peshitta/sedra-cal.svg?branch=master)](https://travis-ci.org/peshitta/sedra-cal)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/peshitta/sedra-cal/blob/master/LICENSE)
 [![Dependency Status](https://david-dm.org/peshitta/sedra-cal.svg)](https://david-dm.org/peshitta/sedra-cal)
 [![devDependencies Status](https://david-dm.org/peshitta/sedra-cal/dev-status.svg)](https://david-dm.org/peshitta/sedra-cal?type=dev)
 [![Coverage Status](https://coveralls.io/repos/github/peshitta/sedra-cal/badge.svg?branch=master)](https://coveralls.io/github/peshitta/sedra-cal?branch=master)
@@ -36,7 +39,7 @@ libraries and applications
 The final goal for this work is to learn the Word of God as recorded by
 [Peshitta](https://en.wikipedia.org/wiki/Peshitta).
 If you would like improve this implementation or have feeback please email
-[peshitto@gmail.com](mailto:peshitto@gmail.com) or feel free to
+[pshitto@gmail.com](mailto:pshitto@gmail.com) or feel free to
 [Fork](https://help.github.com/articles/fork-a-repo/) or create a
 [Pull Request](https://help.github.com/articles/about-pull-requests/).
 Thank you!
