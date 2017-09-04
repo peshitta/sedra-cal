@@ -30,6 +30,16 @@ libraries and applications
 
 [MIT](https://github.com/peshitta/sedra-cal/blob/master/LICENSE)
 
+## Contributing
+
+The final goal for this work is to learn the Word of God as recorded by
+[Peshitta](https://en.wikipedia.org/wiki/Peshitta).
+If you would like improve this implementation or have feeback please email
+[peshitto@gmail.com](mailto:peshitto@gmail.com) or feel free to
+[Fork](https://help.github.com/articles/fork-a-repo/) or create a
+[Pull Request](https://help.github.com/articles/about-pull-requests/).
+Thank you!
+
 ## Development
 
 ```
