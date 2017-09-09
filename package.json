@@ -1,22 +1,22 @@
 {
   "name": "sedra-cal",
-  "version": "1.0.2",
-  "description": "Convert between Sedra 3 and CAL ASCII transliterations",
+  "version": "1.0.3",
+  "description": "Convert from Sedra 3 to CAL ASCII transliteration",
   "main": "build/sedra-cal.js",
   "module": "build/sedra-cal.esm.js",
   "scripts": {
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "build": "npm run doc && npm run lint && npm run rollup && npm run min && npm run test",
-    "min": "uglifyjs ./build/sedra-cal.js -o ./build/sedra-cal.min.js -c dead_code,toplevel,comparisons,unsafe=true,unsafe_Func=true,unsafe_comps=true -m toplevel --comments",
+    "build":
+      "npm run doc && npm run rollup && npm run min && npm run lint && npm run test",
+    "min":
+      "uglifyjs build/sedra-cal.js -o build/sedra-cal.min.js -c dead_code,toplevel,comparisons,unsafe=true,unsafe_Func=true,unsafe_comps=true -m toplevel --comments",
     "test": "nyc mocha",
     "rollup": "rollup -c",
-    "lint": "eslint src/*.js",
-    "doc": "jsdoc2md -t src/README.hbs src/*.js > README.md"
+    "lint": "eslint src/*.js test/*.js",
+    "doc": "jsdoc2md -t doc/readme.hbs src/main.js > README.md"
   },
   "nyc": {
-    "include": [
-      "build/sedra-cal.min.js"
-    ]
+    "include": ["build/sedra-cal.min.js"]
   },
   "eslintConfig": {
     "extends": "airbnb-base",
@@ -25,9 +25,6 @@
       "comma-dangle": 0,
       "no-nested-ternary": 0,
       "arrow-parens": 0
-    },
-    "env": {
-      "mocha": true
     }
   },
   "engines": {
