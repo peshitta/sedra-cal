@@ -1,4 +1,5 @@
 import buble from 'rollup-plugin-buble';
+import uglify from 'rollup-plugin-uglify';
 import pkg from './package.json';
 
 const banner =
@@ -31,17 +32,43 @@ const banner =
   '// https://sedra.bethmardutho.org/about/fonts\n' +
   '// http://cal1.cn.huc.edu/searching/fullbrowser.html\n';
 
+const input = 'src/main.js';
+const name = 'peshitta.sedra';
+const format = 'umd';
+
 export default [
   // browser-friendly UMD build
   {
     banner,
-    input: 'src/main.js',
-    output: [{ file: pkg.main, format: 'umd' }],
-    name: 'peshitta.sedra',
+    input,
+    output: [{ file: pkg.main, format }],
+    name,
     plugins: [
+      // transpile ES2015+ to ES5
       buble({
-        // transpile ES2015+ to ES5
         exclude: ['node_modules/**']
+      })
+    ]
+  },
+
+  // browser-friendly minified UMD build
+  {
+    banner,
+    input,
+    output: [{ file: pkg.mainMin, format }],
+    name,
+    plugins: [
+      // transpile ES2015+ to ES5
+      buble({
+        exclude: ['node_modules/**']
+      }),
+      uglify({
+        output: {
+          comments: (node, comment) => {
+            const { value, type } = comment;
+            return type === 'comment2' && /@license/i.test(value);
+          }
+        }
       })
     ]
   },
@@ -49,7 +76,7 @@ export default [
   // ES module (for bundlers) build.
   {
     banner,
-    input: 'src/main.js',
+    input,
     output: [{ file: pkg.module, format: 'es' }]
   }
 ];
