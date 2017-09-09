@@ -34,7 +34,7 @@
  * @constant
  * @type { string[] }
 */
-const consonants = [
+const consonants = Object.freeze([
   'A',
   'B',
   'G',
@@ -57,14 +57,14 @@ const consonants = [
   'R',
   'W',
   'T'
-];
+]);
 
 /**
  * Sedra vowels
  * @constant
  * @type { string[] }
 */
-const vowels = ['a', 'o', 'e', 'i', 'u'];
+const vowels = Object.freeze(['a', 'o', 'e', 'i', 'u']);
 
 /**
  * Sedra/CAL diacretic characters:
@@ -75,14 +75,14 @@ const vowels = ['a', 'o', 'e', 'i', 'u'];
  * @constant
  * @type { string[] }
 */
-const diacretics = ["'", ',', '_', '*'];
+const diacretics = Object.freeze(["'", ',', '_', '*']);
 
 /**
  * Sedra to CAL map
  * @constant
  * @type { Object.<string, string> }
 */
-const toCalMap = Object.create(null, {
+const toCalMap = Object.freeze(Object.create(null, {
   // Abgad
   [consonants[0]]: { value: ')', enumerable: true },
   [consonants[1]]: { value: 'b', enumerable: true },
@@ -116,7 +116,7 @@ const toCalMap = Object.create(null, {
   [consonants[19]]: { value: 'r', enumerable: true },
   [consonants[20]]: { value: '$', enumerable: true },
   [consonants[21]]: { value: 't', enumerable: true }
-});
+}));
 
 /**
  * Is character c a Sedra 3 consonant?

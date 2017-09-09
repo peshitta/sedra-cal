@@ -35,7 +35,6 @@ export default [
   // browser-friendly UMD build
   {
     banner,
-    // noConflict: true,
     input: 'src/main.js',
     output: [{ file: pkg.main, format: 'umd' }],
     name: 'peshitta.sedra',
@@ -50,7 +49,6 @@ export default [
   // ES module (for bundlers) build.
   {
     banner,
-    // noConflict: true,
     input: 'src/main.js',
     output: [{ file: pkg.module, format: 'es' }]
   }

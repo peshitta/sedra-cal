@@ -40,7 +40,7 @@
  * @constant
  * @type { string[] }
 */
-var consonants = [
+var consonants = Object.freeze([
   'A',
   'B',
   'G',
@@ -63,14 +63,14 @@ var consonants = [
   'R',
   'W',
   'T'
-];
+]);
 
 /**
  * Sedra vowels
  * @constant
  * @type { string[] }
 */
-var vowels = ['a', 'o', 'e', 'i', 'u'];
+var vowels = Object.freeze(['a', 'o', 'e', 'i', 'u']);
 
 /**
  * Sedra/CAL diacretic characters:
@@ -81,14 +81,14 @@ var vowels = ['a', 'o', 'e', 'i', 'u'];
  * @constant
  * @type { string[] }
 */
-var diacretics = ["'", ',', '_', '*'];
+var diacretics = Object.freeze(["'", ',', '_', '*']);
 
 /**
  * Sedra to CAL map
  * @constant
  * @type { Object.<string, string> }
 */
-var toCalMap = Object.create(null, ( obj = {}, obj[consonants[0]] = { value: ')', enumerable: true }, obj[consonants[1]] = { value: 'b', enumerable: true }, obj[consonants[2]] = { value: 'g', enumerable: true }, obj[consonants[3]] = { value: 'd', enumerable: true }, obj[consonants[4]] = { value: 'h', enumerable: true }, obj[consonants[5]] = { value: 'w', enumerable: true }, obj[consonants[6]] = { value: 'z', enumerable: true }, obj[consonants[7]] = { value: 'x', enumerable: true }, obj[consonants[8]] = { value: 'T', enumerable: true }, obj[consonants[9]] = { value: 'y', enumerable: true }, obj[consonants[10]] = { value: 'k', enumerable: true }, obj[consonants[11]] = { value: 'l', enumerable: true }, obj[consonants[12]] = { value: 'm', enumerable: true }, obj[consonants[13]] = { value: 'n', enumerable: true }, obj[consonants[14]] = { value: 's', enumerable: true }, obj[consonants[15]] = { value: '(', enumerable: true }, obj[consonants[16]] = { value: 'p', enumerable: true }, obj[consonants[17]] = { value: 'c', enumerable: true }, obj[consonants[18]] = { value: 'q', enumerable: true }, obj[consonants[19]] = { value: 'r', enumerable: true }, obj[consonants[20]] = { value: '$', enumerable: true }, obj[consonants[21]] = { value: 't', enumerable: true }, obj ));
+var toCalMap = Object.freeze(Object.create(null, ( obj = {}, obj[consonants[0]] = { value: ')', enumerable: true }, obj[consonants[1]] = { value: 'b', enumerable: true }, obj[consonants[2]] = { value: 'g', enumerable: true }, obj[consonants[3]] = { value: 'd', enumerable: true }, obj[consonants[4]] = { value: 'h', enumerable: true }, obj[consonants[5]] = { value: 'w', enumerable: true }, obj[consonants[6]] = { value: 'z', enumerable: true }, obj[consonants[7]] = { value: 'x', enumerable: true }, obj[consonants[8]] = { value: 'T', enumerable: true }, obj[consonants[9]] = { value: 'y', enumerable: true }, obj[consonants[10]] = { value: 'k', enumerable: true }, obj[consonants[11]] = { value: 'l', enumerable: true }, obj[consonants[12]] = { value: 'm', enumerable: true }, obj[consonants[13]] = { value: 'n', enumerable: true }, obj[consonants[14]] = { value: 's', enumerable: true }, obj[consonants[15]] = { value: '(', enumerable: true }, obj[consonants[16]] = { value: 'p', enumerable: true }, obj[consonants[17]] = { value: 'c', enumerable: true }, obj[consonants[18]] = { value: 'q', enumerable: true }, obj[consonants[19]] = { value: 'r', enumerable: true }, obj[consonants[20]] = { value: '$', enumerable: true }, obj[consonants[21]] = { value: 't', enumerable: true }, obj )));
 var obj;
 
 /**
