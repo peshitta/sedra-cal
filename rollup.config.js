@@ -1,3 +1,4 @@
+import eslint from 'rollup-plugin-eslint';
 import buble from 'rollup-plugin-buble';
 import uglify from 'rollup-plugin-uglify';
 import pkg from './package.json';
@@ -44,6 +45,7 @@ export default [
     output: [{ file: pkg.main, format }],
     name,
     plugins: [
+      eslint({ throwOnError: true }),
       // transpile ES2015+ to ES5
       buble({
         exclude: ['node_modules/**']

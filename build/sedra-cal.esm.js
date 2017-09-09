@@ -82,41 +82,42 @@ const diacretics = Object.freeze(["'", ',', '_', '*']);
  * @constant
  * @type { Object.<string, string> }
 */
-const toCalMap = Object.freeze(Object.create(null, {
-  // Abgad
-  [consonants[0]]: { value: ')', enumerable: true },
-  [consonants[1]]: { value: 'b', enumerable: true },
-  [consonants[2]]: { value: 'g', enumerable: true },
-  [consonants[3]]: { value: 'd', enumerable: true },
+const toCalMap =
+  Object.freeze(Object.create(null, {
+    // Abgad
+    [consonants[0]]: { value: ')', enumerable: true },
+    [consonants[1]]: { value: 'b', enumerable: true },
+    [consonants[2]]: { value: 'g', enumerable: true },
+    [consonants[3]]: { value: 'd', enumerable: true },
 
-  // Hawaz
-  [consonants[4]]: { value: 'h', enumerable: true },
-  [consonants[5]]: { value: 'w', enumerable: true },
-  [consonants[6]]: { value: 'z', enumerable: true },
+    // Hawaz
+    [consonants[4]]: { value: 'h', enumerable: true },
+    [consonants[5]]: { value: 'w', enumerable: true },
+    [consonants[6]]: { value: 'z', enumerable: true },
 
-  // Ḥaṭy
-  [consonants[7]]: { value: 'x', enumerable: true },
-  [consonants[8]]: { value: 'T', enumerable: true },
-  [consonants[9]]: { value: 'y', enumerable: true },
+    // Ḥaṭy
+    [consonants[7]]: { value: 'x', enumerable: true },
+    [consonants[8]]: { value: 'T', enumerable: true },
+    [consonants[9]]: { value: 'y', enumerable: true },
 
-  // Kalman
-  [consonants[10]]: { value: 'k', enumerable: true },
-  [consonants[11]]: { value: 'l', enumerable: true },
-  [consonants[12]]: { value: 'm', enumerable: true },
-  [consonants[13]]: { value: 'n', enumerable: true },
+    // Kalman
+    [consonants[10]]: { value: 'k', enumerable: true },
+    [consonants[11]]: { value: 'l', enumerable: true },
+    [consonants[12]]: { value: 'm', enumerable: true },
+    [consonants[13]]: { value: 'n', enumerable: true },
 
-  // Saʿpac
-  [consonants[14]]: { value: 's', enumerable: true },
-  [consonants[15]]: { value: '(', enumerable: true },
-  [consonants[16]]: { value: 'p', enumerable: true },
-  [consonants[17]]: { value: 'c', enumerable: true },
+    // Saʿpac
+    [consonants[14]]: { value: 's', enumerable: true },
+    [consonants[15]]: { value: '(', enumerable: true },
+    [consonants[16]]: { value: 'p', enumerable: true },
+    [consonants[17]]: { value: 'c', enumerable: true },
 
-  // Qarshat
-  [consonants[18]]: { value: 'q', enumerable: true },
-  [consonants[19]]: { value: 'r', enumerable: true },
-  [consonants[20]]: { value: '$', enumerable: true },
-  [consonants[21]]: { value: 't', enumerable: true }
-}));
+    // Qarshat
+    [consonants[18]]: { value: 'q', enumerable: true },
+    [consonants[19]]: { value: 'r', enumerable: true },
+    [consonants[20]]: { value: '$', enumerable: true },
+    [consonants[21]]: { value: 't', enumerable: true }
+  }));
 
 /**
  * Is character c a Sedra 3 consonant?
