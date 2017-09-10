@@ -56,15 +56,35 @@ npm run build
 ## API Reference
 
 * [sedra](#peshitta.module_sedra)
+    * [.toCalMap](#peshitta.module_sedra.toCalMap) : <code>Object.&lt;string, string&gt;</code>
+    * [.wow](#peshitta.module_sedra.wow) : <code>string</code>
+    * [.yod](#peshitta.module_sedra.yod) : <code>string</code>
     * [.consonants](#peshitta.module_sedra.consonants) : <code>Array.&lt;string&gt;</code>
     * [.vowels](#peshitta.module_sedra.vowels) : <code>Array.&lt;string&gt;</code>
     * [.diacretics](#peshitta.module_sedra.diacretics) : <code>Array.&lt;string&gt;</code>
-    * [.toCalMap](#peshitta.module_sedra.toCalMap) : <code>Object.&lt;string, string&gt;</code>
     * [.isConsonant](#peshitta.module_sedra.isConsonant) ⇒ <code>boolean</code>
     * [.isVowel](#peshitta.module_sedra.isVowel) ⇒ <code>boolean</code>
     * [.isDiacretic](#peshitta.module_sedra.isDiacretic) ⇒ <code>boolean</code>
     * [.toCal(word)](#peshitta.module_sedra.toCal) ⇒ <code>string</code>
 
+<a name="peshitta.module_sedra.toCalMap"></a>
+
+### sedra.toCalMap : <code>Object.&lt;string, string&gt;</code>
+Sedra to CAL map
+
+**Kind**: static constant of [<code>sedra</code>](#peshitta.module_sedra)  
+<a name="peshitta.module_sedra.wow"></a>
+
+### sedra.wow : <code>string</code>
+Wow semivowel
+
+**Kind**: static constant of [<code>sedra</code>](#peshitta.module_sedra)  
+<a name="peshitta.module_sedra.yod"></a>
+
+### sedra.yod : <code>string</code>
+Yod semivowel
+
+**Kind**: static constant of [<code>sedra</code>](#peshitta.module_sedra)  
 <a name="peshitta.module_sedra.consonants"></a>
 
 ### sedra.consonants : <code>Array.&lt;string&gt;</code>
@@ -85,12 +105,6 @@ Sedra/CAL diacretic characters:
 * __,__ dot below, Rukkakha
 * **_** line under
 * __*__ Seyame
-
-**Kind**: static constant of [<code>sedra</code>](#peshitta.module_sedra)  
-<a name="peshitta.module_sedra.toCalMap"></a>
-
-### sedra.toCalMap : <code>Object.&lt;string, string&gt;</code>
-Sedra to CAL map
 
 **Kind**: static constant of [<code>sedra</code>](#peshitta.module_sedra)  
 <a name="peshitta.module_sedra.isConsonant"></a>
