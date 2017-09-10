@@ -1,25 +1,5 @@
-/** @module peshitta.sedra */
-import {
-  wow,
-  yod,
-  consonants,
-  vowels,
-  diacretics,
-  isConsonant,
-  isVowel,
-  isDiacretic
-} from './sedra';
-
-export {
-  wow,
-  yod,
-  consonants,
-  vowels,
-  diacretics,
-  isConsonant,
-  isVowel,
-  isDiacretic
-};
+/** @module sedra */
+import { wow, yod, isConsonant } from 'sedra-code-util';
 
 /**
  * Sedra to CAL map

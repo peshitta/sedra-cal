@@ -6,13 +6,14 @@
   "main݂Min": "build/sedra-cal.min.js",
   "module": "build/sedra-cal.esm.js",
   "scripts": {
-    "prebuild": "npm run doc && npm run lint && npm test",
-    "build": "rollup -c --environment BUILD:production",
     "pretest": "rollup -c",
     "test": "mocha",
-    "lint": "eslint src test",
+    "prebuild": "npm run doc && npm test && npm run lint",
+    "build": "rollup -c --environment BUILD:production",
     "doc": "jsdoc2md -t doc/readme.hbs src/*.js > README.md",
-    "coverage": "cat ./coverage/lcov.info | coveralls && rm -rf ./coverage"
+    "lint": "eslint src test",
+    "coverage": "cat ./coverage/lcov.info | coveralls && rm -rf ./coverage",
+    "prepublish": "npm run build"
   },
   "eslintConfig": {
     "extends": "airbnb-base",
@@ -48,13 +49,15 @@
     "Mapper",
     "Converter"
   ],
-  "author": "Greg Borota <pshitto@gmail.com> (https://peshitta.github.io)",
+  "author": "Greg Borota",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/peshitta/sedra-cal/issues"
   },
   "homepage": "https://github.com/peshitta/sedra-cal#readme",
-  "dependencies": {},
+  "dependencies": {
+    "sedra-code-util": "^1.0.1"
+  },
   "devDependencies": {
     "babel-plugin-external-helpers": "^6.22.0",
     "babel-preset-es2015": "^6.24.1",

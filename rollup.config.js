@@ -38,8 +38,9 @@ const banner = isProduction
 
 const external = Object.keys(pkg.dependencies);
 const input = 'src/main.js';
-const name = 'peshitta.sedra';
+const name = 'sedraCal';
 const format = 'umd';
+const globals = { 'sedra-code-util': 'sedraCodeUtil' };
 const sourcemap = isProduction ? false : 'inline';
 const plugins = [babel(babelrc({ path: 'babelrc.json' }))];
 
@@ -51,6 +52,7 @@ const targets = [
     external,
     plugins: plugins.slice(0),
     name,
+    globals,
     banner,
     sourcemap
   }
@@ -84,6 +86,7 @@ if (isProduction) {
     external,
     plugins,
     name,
+    globals,
     banner
   });
 } else {

@@ -12,7 +12,7 @@ module.exports = function(runner) {
     collector.add(global.__coverage__);
 
     reporter.write(collector, true, function() {
-      process.stdout.write('report generated');
+      process.stdout.write('Coverage report generated');
     });
   });
 };
