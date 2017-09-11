@@ -1,6 +1,6 @@
 {
   "name": "sedra-cal",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Convert from Sedra 3 to CAL code ASCII transliteration",
   "main": "build/sedra-cal.js",
   "main݂Min": "build/sedra-cal.min.js",

@@ -35,6 +35,26 @@ describe('Sedra', () => {
       strictEqual(word, wordExpected, 'toCal_wu consonant');
       strictEqual(vocalised, vocalisedExpected, 'toCal_wu vocalised');
     });
+    it('Blank word returns blank', () => {
+      const word = toCal('');
+      const wordExpected = '';
+      strictEqual(word, wordExpected, 'toCal_blank');
+    });
+    it('Null word returns null', () => {
+      const word = toCal(null);
+      const wordExpected = null;
+      strictEqual(word, wordExpected, 'toCal_null');
+    });
+    it('Undefined word returns undefined', () => {
+      const word = toCal(undefined);
+      const wordExpected = undefined;
+      strictEqual(word, wordExpected, 'toCal_undefined');
+    });
+    it('0 number as word returns 0', () => {
+      const word = toCal(0);
+      const wordExpected = 0;
+      strictEqual(word, wordExpected, 'toCal_zero');
+    });
   });
   describe('Util', () => {
     it('Is Mapped Letter', () => {

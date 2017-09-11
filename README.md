@@ -30,6 +30,9 @@ libraries and applications
 
 [CAL](http://cal1.cn.huc.edu/searching/fullbrowser.html)
 
+For CAL to Sedra 3 conversion see:
+[cal-sedra](https://github.com/peshitta/cal-sedra)
+
 ## License
 
 [MIT](https://github.com/peshitta/sedra-cal/blob/master/LICENSE)
