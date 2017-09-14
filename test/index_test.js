@@ -28,12 +28,12 @@ describe('Sedra', () => {
       strictEqual(vocalised, vocalisedExpected, 'toCal_wu vocalised');
     });
     it('Word with (oO) => (wO) mapping', () => {
-      const word = toCal('ABHOH;');
-      const vocalised = toCal('AaB,oHaOH_;');
-      const wordExpected = ')bhwhy';
-      const vocalisedExpected = ')ab,ohawh_y';
-      strictEqual(word, wordExpected, 'toCal_wu consonant');
-      strictEqual(vocalised, vocalisedExpected, 'toCal_wu vocalised');
+      const word = toCal('AGBOS');
+      const vocalised = toCal('AaG,aB,oOS');
+      const wordExpected = ')gbws';
+      const vocalisedExpected = ')ag,ab,wOs';
+      strictEqual(word, wordExpected, 'toCal_oO consonant');
+      strictEqual(vocalised, vocalisedExpected, 'toCal_oO vocalised');
     });
     it('Blank word returns blank', () => {
       const word = toCal('');
@@ -58,17 +58,17 @@ describe('Sedra', () => {
   });
   describe('Util', () => {
     it('Is Mapped Letter', () => {
-      ok(toCalMap.A, 'toCalMap');
-      ok(toCalMap.B, 'toCalMap');
-      ok(toCalMap.C, 'toCalMap');
-      ok(toCalMap.D, 'toCalMap');
-      ok(toCalMap.E, 'toCalMap');
-      ok(!toCalMap.F, 'toCalMap');
-      ok(!toCalMap.b, 'toCalMap');
-      ok(!toCalMap.c, 'toCalMap');
-      ok(!toCalMap.e, 'toCalMap');
-      ok(!toCalMap.f, 'toCalMap');
-      ok(!toCalMap[''], 'toCalMap');
+      ok(toCalMap.A, 'A toCalMap');
+      ok(toCalMap.B, 'B toCalMap');
+      ok(toCalMap.C, 'C toCalMap');
+      ok(toCalMap.D, 'D toCalMap');
+      ok(toCalMap.E, 'E toCalMap');
+      ok(!toCalMap.F, 'F toCalMap');
+      ok(!toCalMap.b, 'b toCalMap');
+      ok(!toCalMap.c, 'c toCalMap');
+      ok(!toCalMap.e, 'e toCalMap');
+      ok(!toCalMap.f, 'f toCalMap');
+      ok(!toCalMap[''], "'' toCalMap");
     });
   });
 });

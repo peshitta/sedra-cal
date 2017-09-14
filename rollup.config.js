@@ -40,7 +40,11 @@ const external = Object.keys(pkg.dependencies);
 const input = 'src/main.js';
 const name = 'sedraCal';
 const format = 'umd';
-const globals = { 'sedra-code-util': 'sedraCodeUtil' };
+const globals = {
+  'sedra-code-util': 'sedraCodeUtil',
+  'cal-code-util': 'calCodeUtil',
+  'aramaic-mapper': 'aramaicMapper'
+};
 const sourcemap = isProduction ? false : 'inline';
 const plugins = [babel(babelrc({ path: 'babelrc.json' }))];
 

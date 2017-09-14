@@ -1,8 +1,68 @@
 /** @module sedra */
-import { wow, yod, isConsonant } from 'sedra-code-util';
+import {
+  wow,
+  yod,
+  isConsonant,
+  consonants,
+  vowels,
+  diacritics
+} from 'sedra-code-util';
+import {
+  consonants as calConsonants,
+  vowels as calVowels,
+  diacritics as calDiacritics
+} from 'cal-code-util';
+import { Writing, Mapper } from 'aramaic-mapper';
 
 /**
- * Sedra to CAL map
+ * @private
+ * Aramaic mapper
+ */
+const mapper = new Mapper(
+  new Writing(consonants, vowels, diacritics),
+  new Writing(calConsonants, calVowels, calDiacritics),
+  (word, i, toFrom) => {
+    const c = word.charAt(i);
+    const to = () => toFrom[c] || c;
+    let m;
+    switch (c) {
+      case 'i':
+        m =
+          word.charAt(i + 1) === yod && isConsonant(word.charAt(i + 2))
+            ? 'yi' // Sedra stores as (iy)
+            : to();
+        break;
+      case 'u':
+        m =
+          word.charAt(i + 1) === wow && isConsonant(word.charAt(i + 2))
+            ? 'wu' // Sedra stores as (uw)
+            : to();
+        break;
+      case 'o':
+        m =
+          word.charAt(i + 1) === wow && isConsonant(word.charAt(i + 2))
+            ? 'wO' // Eastern O stored as (ow) in Sedra
+            : to();
+        break;
+      default:
+        m = to();
+        break;
+    }
+    return m;
+  }
+);
+
+/**
+ * Convert from Sedra 3 to CAL Code transliteration
+ * @param {string} word input word in Sedra 3 transliteration
+ * @returns {string} the input word converted to CAL code representation
+ */
+export function toCal(word) {
+  return mapper.map(word);
+}
+
+/**
+ * Sedra to CAL consonant map
  * @constant
  * @type { Object.<string, string> }
 */
@@ -43,52 +103,3 @@ export const toCalMap = Object.freeze(
     T: { value: 't', enumerable: true }
   })
 );
-
-/**
- * @private
- * Maps input character to CAL code
- * @param { string } c input character
- * @returns { string } CAL mapped character
- */
-const map = c => toCalMap[c] || c;
-
-/**
- * Convert from Sedra 3 to CAL Code transliteration
- * @param {string} word input word in Sedra 3 transliteration
- * @returns {string} the input word converted to CAL code representation
- */
-export function toCal(word) {
-  if (!word) {
-    return word;
-  }
-
-  let sb = '';
-  for (let i = 0, len = word.length, m; i < len; i += m.length) {
-    const c = word.charAt(i);
-    switch (c) {
-      case 'i':
-        m =
-          word.charAt(i + 1) === yod && isConsonant(word.charAt(i + 2))
-            ? 'yi' // Sedra stores as (iy)
-            : map(c);
-        break;
-      case 'u':
-        m =
-          word.charAt(i + 1) === wow && isConsonant(word.charAt(i + 2))
-            ? 'wu' // Sedra stores as (uw)
-            : map(c);
-        break;
-      case 'o':
-        m =
-          word.charAt(i + 1) === wow && isConsonant(word.charAt(i + 2))
-            ? 'wO' // Eastern O stored as (ow) in Sedra
-            : map(c);
-        break;
-      default:
-        m = map(c);
-        break;
-    }
-    sb += m;
-  }
-  return sb;
-}

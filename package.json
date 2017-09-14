@@ -1,6 +1,6 @@
 {
   "name": "sedra-cal",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Convert from Sedra 3 to CAL code ASCII transliteration",
   "main": "build/sedra-cal.js",
   "main݂Min": "build/sedra-cal.min.js",
@@ -9,7 +9,8 @@
     "pretest": "rollup -c",
     "test": "mocha",
     "prebuild": "npm run doc && npm test && npm run lint",
-    "build": "rollup -c --environment BUILD:production",
+    "build": "npm run bundle",
+    "bundle": "rollup -c --environment BUILD:production",
     "doc": "jsdoc2md -t doc/readme.hbs src/*.js > README.md",
     "lint": "eslint src test",
     "coverage": "cat ./coverage/lcov.info | coveralls && rm -rf ./coverage",
@@ -56,7 +57,9 @@
   },
   "homepage": "https://github.com/peshitta/sedra-cal#readme",
   "dependencies": {
-    "sedra-code-util": "^1.0.1"
+    "aramaic-mapper": "^1.0.1",
+    "cal-code-util": "^1.0.1",
+    "sedra-code-util": "^1.0.2"
   },
   "devDependencies": {
     "babel-plugin-external-helpers": "^6.22.0",
