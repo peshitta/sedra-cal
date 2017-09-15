@@ -9,7 +9,7 @@ import {
 } from 'sedra-code-util';
 import {
   consonants as calConsonants,
-  vowels as calVowels,
+  commonVowels as calVowels,
   diacritics as calDiacritics
 } from 'cal-code-util';
 import { Writing, Mapper } from 'aramaic-mapper';
