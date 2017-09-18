@@ -1,24 +1,25 @@
 /** @module sedra */
+import { Writing, Mapper } from 'aramaic-mapper';
 import {
-  wow,
-  yod,
-  isConsonant,
   consonants,
   vowels,
-  diacritics
+  diacritics,
+  wow,
+  yod,
+  isConsonant
 } from 'sedra-code-util';
 import {
   consonants as calConsonants,
   commonVowels as calVowels,
   diacritics as calDiacritics
 } from 'cal-code-util';
-import { Writing, Mapper } from 'aramaic-mapper';
 
 /**
- * @private
  * Aramaic mapper
+ * @const
+ * @type { Mapper }
  */
-const mapper = new Mapper(
+export const mapper = new Mapper(
   new Writing(consonants, vowels, diacritics),
   new Writing(calConsonants, calVowels, calDiacritics),
   (word, i, toFrom) => {
@@ -57,9 +58,7 @@ const mapper = new Mapper(
  * @param {string} word input word in Sedra 3 transliteration
  * @returns {string} the input word converted to CAL code representation
  */
-export function toCal(word) {
-  return mapper.map(word);
-}
+export const toCal = word => mapper.map(word);
 
 /**
  * Sedra to CAL consonant map

@@ -1,5 +1,5 @@
 import { strictEqual, ok } from 'assert';
-import { toCal, toCalMap } from '../build/sedra-cal';
+import { toCal, mapper, toCalMap } from '../build/sedra-cal';
 
 describe('Sedra', () => {
   describe('To CAL', () => {
@@ -69,6 +69,35 @@ describe('Sedra', () => {
       ok(!toCalMap.e, 'e toCalMap');
       ok(!toCalMap.f, 'f toCalMap');
       ok(!toCalMap[''], "'' toCalMap");
+    });
+  });
+  describe('Mapped writing', () => {
+    it('Consonants length', () => {
+      strictEqual(
+        mapper.fromWriting.consonants.length,
+        mapper.toWriting.consonants.length,
+        'Length differs'
+      );
+      ok(
+        mapper.fromWriting.consonants.length === 22,
+        'Length equal to 22'
+      );
+    });
+    it('Vowels length', () => {
+      strictEqual(
+        mapper.fromWriting.vowels.length,
+        mapper.toWriting.vowels.length,
+        'Length differs'
+      );
+      ok(mapper.fromWriting.vowels.length === 5, 'Length equal to 5');
+    });
+    it('Diacritics length', () => {
+      strictEqual(
+        mapper.fromWriting.diacritics.length,
+        mapper.toWriting.diacritics.length,
+        'Length differs'
+      );
+      ok(mapper.fromWriting.diacritics.length === 4, 'Length equal to 4');
     });
   });
 });
