@@ -5,6 +5,7 @@ import uglify from 'rollup-plugin-uglify';
 import pkg from './package.json';
 
 const isProduction = process.env.BUILD === 'production';
+const isDev = process.env.BUILD === 'dev';
 const banner = isProduction
   ? '/**\n' +
     '* @file Utility to convert from Sedra 3 to CAL ASCII transliteration\n' +
@@ -93,7 +94,7 @@ if (isProduction) {
     globals,
     banner
   });
-} else {
+} else if (!isDev) {
   targets[0].plugins.push(
     istanbul({
       exclude: ['test/**/*', 'node_modules/**/*']

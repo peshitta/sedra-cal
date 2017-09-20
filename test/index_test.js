@@ -1,5 +1,5 @@
-import { strictEqual, ok } from 'assert';
-import { toCal, mapper, toCalMap } from '../build/sedra-cal';
+const { strictEqual, ok } = require('assert');
+const { toCal, mapper, toCalMap } = require('../build/sedra-cal');
 
 describe('Sedra', () => {
   describe('To CAL', () => {
