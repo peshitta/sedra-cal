@@ -11,6 +11,16 @@ describe('Sedra', () => {
       strictEqual(word, wordExpected, 'toCal_generic consonant');
       strictEqual(vocalised, vocalisedExpected, 'toCal_generic vocalised');
     });
+    describe('To CAL', () => {
+      it('General case usage, with unmapped', () => {
+        const word = toCal('|DXSR;A-DI;L;IOS>');
+        const vocalised = toCal("D'X}eSaRi;aA-D,I,i;Li;I'oOS");
+        const wordExpected = '|dqsry)-dpylypws>';
+        const vocalisedExpected = "d'q}esariya)-d,p,yilyip'wOs";
+        strictEqual(word, wordExpected, 'toCal_generic consonant');
+        strictEqual(vocalised, vocalisedExpected, 'toCal_generic vocalised');
+      });
+    });
     it('Word with (i;) => (yi) mapping', () => {
       const word = toCal('D;L;DOTH');
       const vocalised = toCal("D'i;Li;D,uOT,eH");
