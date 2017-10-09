@@ -1,5 +1,4 @@
-import babel from 'rollup-plugin-babel';
-import babelrc from 'babelrc-rollup';
+import buble from 'rollup-plugin-buble';
 import istanbul from 'rollup-plugin-istanbul';
 import uglify from 'rollup-plugin-uglify';
 import pkg from './package.json';
@@ -8,8 +7,8 @@ const isProduction = process.env.BUILD === 'production';
 const isDev = process.env.BUILD === 'dev';
 const banner = isProduction
   ? '/**\n' +
-    '* @file Utility to convert from Sedra 3 to CAL ASCII transliteration\n' +
-    '* @version 1.0.3\n' +
+    '* @file Convert from Sedra 3 to CAL ASCII transliteration\n' +
+    '* @version 1.0.9\n' +
     '* @author Greg Borota\n' +
     '* @copyright (c) 2017 Greg Borota.\n' +
     '* @license MIT\n' +
@@ -42,14 +41,14 @@ const input = 'src/main.js';
 const name = 'sedraCal';
 const format = 'umd';
 const globals = {
-  'sedra-code-util': 'sedraCodeUtil',
+  'aramaic-mapper': 'aramaicMapper',
   'cal-code-util': 'calCodeUtil',
-  'aramaic-mapper': 'aramaicMapper'
+  'sedra-code-util': 'sedraCodeUtil'
 };
-const sourcemap = isProduction ? false : 'inline';
-const plugins = [babel(babelrc({ path: 'babelrc.json' }))];
+const sourcemap = !isProduction;
+const plugins = [buble()];
 
-// browser-friendly UMD build
+// browser/nodejs-friendly UMD build
 const targets = [
   {
     input,
@@ -84,10 +83,10 @@ if (isProduction) {
     })
   );
 
-  // browser-friendly minified UMD build
+  // browser/nodejs-friendly minified UMD build
   targets.push({
     input,
-    output: [{ file: pkg.main݂Min, format }],
+    output: [{ file: pkg.mainMin, format }],
     external,
     plugins,
     name,

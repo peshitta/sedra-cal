@@ -1,4 +1,4 @@
-/** @module sedra */
+/** @module sedraCal */
 import { Writing, Mapper } from 'aramaic-mapper';
 import {
   consonants,

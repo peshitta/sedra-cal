@@ -1,21 +1,22 @@
 {
   "name": "sedra-cal",
-  "version": "1.0.8",
-  "description": "Convert from Sedra 3 to CAL code ASCII transliteration",
+  "version": "1.0.9",
+  "description": "Convert from Sedra 3 to CAL ASCII transliteration",
   "main": "build/sedra-cal.js",
-  "main݂Min": "build/sedra-cal.min.js",
+  "mainMin": "build/sedra-cal.min.js",
   "module": "build/sedra-cal.esm.js",
   "scripts": {
     "pretest": "rollup -c",
     "test": "mocha --reporter test/istanbul.reporter.js --recursive",
-    "prebuild": "npm run doc && npm test && npm run lint",
+    "prebuild": "npm test && npm run lint",
     "build": "npm run bundle",
-    "build:dev": "rollup -c --environment BUILD:dev",
+    "postbuild": "npm run doc",
     "bundle": "rollup -c --environment BUILD:production",
-    "doc": "jsdoc2md -t doc/readme.hbs src/*.js > README.md",
+    "build:dev": "rollup -c --environment BUILD:dev",
     "lint": "eslint src test",
+    "doc": "jsdoc2md -t doc/readme.hbs src/*.js > README.md",
     "coverage": "cat ./coverage/lcov.info | coveralls && rm -rf ./coverage",
-    "prepublishOnly": "npm run build"
+    "prepare": "npm run build"
   },
   "eslintConfig": {
     "extends": "airbnb-base",
@@ -48,8 +49,9 @@
     "Sedra.js",
     "Sedrajs",
     "Aramaic",
-    "Mapper",
-    "Converter"
+    "Syriac",
+    "Estrangela",
+    "Estrangelo"
   ],
   "author": "Greg Borota",
   "license": "MIT",
@@ -58,24 +60,20 @@
   },
   "homepage": "https://github.com/peshitta/sedra-cal#readme",
   "dependencies": {
-    "aramaic-mapper": "^1.0.3",
-    "cal-code-util": "^1.0.5",
-    "sedra-code-util": "^1.0.2"
+    "aramaic-mapper": "^1.0.6",
+    "cal-code-util": "^1.0.7",
+    "sedra-code-util": "^1.0.4"
   },
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-plugin-external-helpers": "^6.22.0",
-    "babel-preset-env": "^1.6.0",
-    "babelrc-rollup": "^3.0.0",
-    "coveralls": "^2.13.1",
-    "eslint": "^4.7.0",
-    "eslint-config-airbnb-base": "^12.0.0",
+    "coveralls": "^3.0.0",
+    "eslint": "^4.8.0",
+    "eslint-config-airbnb-base": "^12.0.2",
     "eslint-plugin-import": "^2.7.0",
     "istanbul": "^0.4.5",
     "jsdoc-to-markdown": "^3.0.0",
-    "mocha": "^3.5.3",
+    "mocha": "^4.0.1",
     "rollup": "^0.50.0",
-    "rollup-plugin-babel": "^3.0.2",
+    "rollup-plugin-buble": "^0.16.0",
     "rollup-plugin-istanbul": "^1.1.0",
     "rollup-plugin-uglify": "^2.0.1"
   }

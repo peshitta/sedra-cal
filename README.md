@@ -8,7 +8,7 @@
 [![devDependencies Status](https://david-dm.org/peshitta/sedra-cal/dev-status.svg)](https://david-dm.org/peshitta/sedra-cal?type=dev)
 [![Coverage Status](https://coveralls.io/repos/github/peshitta/sedra-cal/badge.svg?branch=master)](https://coveralls.io/github/peshitta/sedra-cal?branch=master)
 
-Utility to convert from Sedra 3 to CAL ASCII transliteration.
+Convert from Sedra 3 to CAL ASCII transliteration
 
 ## Installation
 
@@ -25,7 +25,7 @@ Following bundles are available:
 libraries and applications
 
 The package could also be downloaded directly from:
-[https://registry.npmjs.org/sedra-cal/-/sedra-cal-1.0.8.tgz](https://registry.npmjs.org/sedra-cal/-/sedra-cal-1.0.8.tgz)
+[https://registry.npmjs.org/sedra-cal/-/sedra-cal-1.0.9.tgz](https://registry.npmjs.org/sedra-cal/-/sedra-cal-1.0.9.tgz)
 
 ## More information
 
@@ -63,32 +63,32 @@ npm run build
 
 ## API Reference
 
-* [sedra](#module_sedra)
-    * [.mapper](#module_sedra.mapper) : <code>Mapper</code>
-    * [.toCal](#module_sedra.toCal) ⇒ <code>string</code>
-    * [.toCalMap](#module_sedra.toCalMap) : <code>Object.&lt;string, string&gt;</code>
+* [sedraCal](#module_sedraCal)
+    * [.mapper](#module_sedraCal.mapper) : <code>Mapper</code>
+    * [.toCal](#module_sedraCal.toCal) ⇒ <code>string</code>
+    * [.toCalMap](#module_sedraCal.toCalMap) : <code>Object.&lt;string, string&gt;</code>
 
-<a name="module_sedra.mapper"></a>
+<a name="module_sedraCal.mapper"></a>
 
-### sedra.mapper : <code>Mapper</code>
+### sedraCal.mapper : <code>Mapper</code>
 Aramaic mapper
 
-**Kind**: static constant of [<code>sedra</code>](#module_sedra)  
-<a name="module_sedra.toCal"></a>
+**Kind**: static constant of [<code>sedraCal</code>](#module_sedraCal)  
+<a name="module_sedraCal.toCal"></a>
 
-### sedra.toCal ⇒ <code>string</code>
+### sedraCal.toCal ⇒ <code>string</code>
 Convert from Sedra 3 to CAL Code transliteration
 
-**Kind**: static constant of [<code>sedra</code>](#module_sedra)  
+**Kind**: static constant of [<code>sedraCal</code>](#module_sedraCal)  
 **Returns**: <code>string</code> - the input word converted to CAL code representation  
 
 | Param | Type | Description |
 | --- | --- | --- |
 | word | <code>string</code> | input word in Sedra 3 transliteration |
 
-<a name="module_sedra.toCalMap"></a>
+<a name="module_sedraCal.toCalMap"></a>
 
-### sedra.toCalMap : <code>Object.&lt;string, string&gt;</code>
+### sedraCal.toCalMap : <code>Object.&lt;string, string&gt;</code>
 Sedra to CAL consonant map
 
-**Kind**: static constant of [<code>sedra</code>](#module_sedra)  
+**Kind**: static constant of [<code>sedraCal</code>](#module_sedraCal)  

@@ -88,10 +88,7 @@ describe('Sedra', () => {
         mapper.toWriting.consonants.length,
         'Length differs'
       );
-      ok(
-        mapper.fromWriting.consonants.length === 22,
-        'Length equal to 22'
-      );
+      ok(mapper.fromWriting.consonants.length === 22, 'Length equal to 22');
     });
     it('Vowels length', () => {
       strictEqual(
