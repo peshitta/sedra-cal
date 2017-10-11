@@ -33,6 +33,12 @@ export const mapper = new Mapper(
             ? 'yi' // Sedra stores as (iy)
             : to();
         break;
+      case 'e':
+        m =
+          word.charAt(i + 1) === yod && isConsonant(word.charAt(i + 2))
+            ? 'ye' // Sedra stores as (iy)
+            : to();
+        break;
       case 'u':
         m =
           word.charAt(i + 1) === wow && isConsonant(word.charAt(i + 2))

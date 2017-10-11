@@ -11,15 +11,13 @@ describe('Sedra', () => {
       strictEqual(word, wordExpected, 'toCal_generic consonant');
       strictEqual(vocalised, vocalisedExpected, 'toCal_generic vocalised');
     });
-    describe('To CAL', () => {
-      it('General case usage, with unmapped', () => {
-        const word = toCal('|DXSR;A-DI;L;IOS>');
-        const vocalised = toCal("D'X}eSaRi;aA-D,I,i;Li;I'oOS");
-        const wordExpected = '|dqsry)-dpylypws>';
-        const vocalisedExpected = "d'q}esariya)-d,p,yilyip'wOs";
-        strictEqual(word, wordExpected, 'toCal_generic consonant');
-        strictEqual(vocalised, vocalisedExpected, 'toCal_generic vocalised');
-      });
+    it('General case usage, with unmapped', () => {
+      const word = toCal('|DXSR;A-DI;L;IOS>');
+      const vocalised = toCal("D'X}eSaRi;aA-D,I,i;Li;I'oOS");
+      const wordExpected = '|dqsry)-dpylypws>';
+      const vocalisedExpected = "d'q}esariya)-d,p,yilyip'wOs";
+      strictEqual(word, wordExpected, 'toCal_generic consonant');
+      strictEqual(vocalised, vocalisedExpected, 'toCal_generic vocalised');
     });
     it('Word with (i;) => (yi) mapping', () => {
       const word = toCal('D;L;DOTH');
@@ -29,11 +27,27 @@ describe('Sedra', () => {
       strictEqual(word, wordExpected, 'toCal_yi consonant');
       strictEqual(vocalised, vocalisedExpected, 'toCal_yi vocalised');
     });
+    it('Word with (e;) => (ye) mapping', () => {
+      const word = toCal('B;T');
+      const vocalised = toCal("B'e;T,");
+      const wordExpected = 'byt';
+      const vocalisedExpected = "b'yet,";
+      strictEqual(word, wordExpected, 'toCal_ye consonant');
+      strictEqual(vocalised, vocalisedExpected, 'toCal_ye vocalised');
+    });
     it('Word with (uO) => (wu) mapping', () => {
       const word = toCal('LBELDBB;CON');
       const vocalised = toCal("LaB,EeLD'B,oB,a;C'uON");
       const wordExpected = 'lb(ldbbykwn';
       const vocalisedExpected = "lab,(eld'b,ob,ayk'wun";
+      strictEqual(word, wordExpected, 'toCal_wu consonant');
+      strictEqual(vocalised, vocalisedExpected, 'toCal_wu vocalised');
+    });
+    it('Standalone U', () => {
+      const word = toCal('LBELDBB;CON');
+      const vocalised = toCal("LaB,EeLD'B,oB,a;C'uONu");
+      const wordExpected = 'lb(ldbbykwn';
+      const vocalisedExpected = "lab,(eld'b,ob,ayk'wunu";
       strictEqual(word, wordExpected, 'toCal_wu consonant');
       strictEqual(vocalised, vocalisedExpected, 'toCal_wu vocalised');
     });
