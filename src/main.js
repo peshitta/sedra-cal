@@ -4,8 +4,7 @@ import {
   consonants,
   vowels,
   diacritics,
-  wow,
-  yod,
+  consonantsByName,
   isConsonant
 } from 'sedra-code-util';
 import {
@@ -29,25 +28,29 @@ export const mapper = new Mapper(
     switch (c) {
       case 'i':
         m =
-          word.charAt(i + 1) === yod && isConsonant(word.charAt(i + 2))
+          word.charAt(i + 1) === consonantsByName.yod &&
+          isConsonant(word.charAt(i + 2))
             ? 'yi' // Sedra stores as (iy)
             : to();
         break;
       case 'e':
         m =
-          word.charAt(i + 1) === yod && isConsonant(word.charAt(i + 2))
+          word.charAt(i + 1) === consonantsByName.yod &&
+          isConsonant(word.charAt(i + 2))
             ? 'ye' // Sedra stores as (iy)
             : to();
         break;
       case 'u':
         m =
-          word.charAt(i + 1) === wow && isConsonant(word.charAt(i + 2))
+          word.charAt(i + 1) === consonantsByName.waw &&
+          isConsonant(word.charAt(i + 2))
             ? 'wu' // Sedra stores as (uw)
             : to();
         break;
       case 'o':
         m =
-          word.charAt(i + 1) === wow && isConsonant(word.charAt(i + 2))
+          word.charAt(i + 1) === consonantsByName.waw &&
+          isConsonant(word.charAt(i + 2))
             ? 'wO' // Eastern O stored as (ow) in Sedra
             : to();
         break;
