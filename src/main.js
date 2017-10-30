@@ -37,7 +37,7 @@ export const mapper = new Mapper(
         m =
           word.charAt(i + 1) === consonantsByName.yod &&
           isConsonant(word.charAt(i + 2))
-            ? 'ye' // Sedra stores as (iy)
+            ? 'ye' // Sedra stores as (ey)
             : to();
         break;
       case 'u':
