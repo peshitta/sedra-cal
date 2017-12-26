@@ -21,11 +21,15 @@ describe('Sedra', () => {
     });
     it('Word with (i;) => (yi) mapping', () => {
       const word = toCal('D;L;DOTH');
-      const vocalised = toCal("D'i;Li;D,uOT,eH");
+      let vocalised = toCal("D'i;Li;D,uOT,eH");
       const wordExpected = 'dylydwth';
-      const vocalisedExpected = "d'yilyid,wut,eh";
+      let vocalisedExpected = "d'yilyid,wut,eh";
       strictEqual(word, wordExpected, 'toCal_yi consonant');
       strictEqual(vocalised, vocalisedExpected, 'toCal_yi vocalised');
+
+      vocalised = toCal("AaT'i;");
+      vocalisedExpected = ")at'yi";
+      strictEqual(vocalised, vocalisedExpected, 'toCal_yi$ vocalised');
     });
     it('Word with (e;) => (ye) mapping', () => {
       const word = toCal('B;T');
@@ -37,11 +41,15 @@ describe('Sedra', () => {
     });
     it('Word with (uO) => (wu) mapping', () => {
       const word = toCal('LBELDBB;CON');
-      const vocalised = toCal("LaB,EeLD'B,oB,a;C'uON");
+      let vocalised = toCal("LaB,EeLD'B,oB,a;C'uON");
       const wordExpected = 'lb(ldbbykwn';
-      const vocalisedExpected = "lab,(eld'b,ob,ayk'wun";
+      let vocalisedExpected = "lab,(eld'b,ob,ayk'wun";
       strictEqual(word, wordExpected, 'toCal_wu consonant');
       strictEqual(vocalised, vocalisedExpected, 'toCal_wu vocalised');
+
+      vocalised = toCal('AeLuO');
+      vocalisedExpected = ')elwu';
+      strictEqual(vocalised, vocalisedExpected, 'toCal_wu$ vocalised');
     });
     it('Standalone U', () => {
       const word = toCal('LBELDBB;CON');
@@ -53,11 +61,15 @@ describe('Sedra', () => {
     });
     it('Word with (oO) => (wO) mapping', () => {
       const word = toCal('AGBOS');
-      const vocalised = toCal('AaG,aB,oOS');
+      let vocalised = toCal('AaG,aB,oOS');
       const wordExpected = ')gbws';
-      const vocalisedExpected = ')ag,ab,wOs';
+      let vocalisedExpected = ')ag,ab,wOs';
       strictEqual(word, wordExpected, 'toCal_oO consonant');
       strictEqual(vocalised, vocalisedExpected, 'toCal_oO vocalised');
+
+      vocalised = toCal('AoO');
+      vocalisedExpected = ')wO';
+      strictEqual(vocalised, vocalisedExpected, 'toCal_oO$ vocalised');
     });
     it('Blank word returns blank', () => {
       const word = toCal('');

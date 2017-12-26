@@ -29,28 +29,28 @@ export const mapper = new Mapper(
       case 'i':
         m =
           word.charAt(i + 1) === consonantsByName.yod &&
-          isConsonant(word.charAt(i + 2))
+          (!word.charAt(i + 2) || isConsonant(word.charAt(i + 2)))
             ? 'yi' // Sedra stores as (iy)
             : to();
         break;
       case 'e':
         m =
           word.charAt(i + 1) === consonantsByName.yod &&
-          isConsonant(word.charAt(i + 2))
+          (!word.charAt(i + 2) || isConsonant(word.charAt(i + 2)))
             ? 'ye' // Sedra stores as (ey)
             : to();
         break;
       case 'u':
         m =
           word.charAt(i + 1) === consonantsByName.waw &&
-          isConsonant(word.charAt(i + 2))
+          (!word.charAt(i + 2) || isConsonant(word.charAt(i + 2)))
             ? 'wu' // Sedra stores as (uw)
             : to();
         break;
       case 'o':
         m =
           word.charAt(i + 1) === consonantsByName.waw &&
-          isConsonant(word.charAt(i + 2))
+          (!word.charAt(i + 2) || isConsonant(word.charAt(i + 2)))
             ? 'wO' // Eastern O stored as (ow) in Sedra
             : to();
         break;
@@ -73,7 +73,7 @@ export const toCal = word => mapper.map(word);
  * Sedra to CAL consonant map
  * @constant
  * @type { Object.<string, string> }
-*/
+ */
 export const toCalMap = Object.freeze(
   Object.create(null, {
     // Abgad
